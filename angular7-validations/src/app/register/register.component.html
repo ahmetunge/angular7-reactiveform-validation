@@ -1,0 +1,149 @@
+<div class=" container">
+  <div class="card">
+    <div class="card-header text-center bg-primary text-white">
+      <h3>
+        Register Form
+      </h3>
+
+    </div>
+    <div class="card-body">
+
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <mat-form-field class="form-input">
+              <input matInput placeholder="Firstname" formControlName="firstname" maxlength="100" required>
+              <mat-hint align="end">
+                  {{firstname.value.length}}/100
+                </mat-hint>
+              <mat-error *ngIf="firstname.hasError('required')">
+                <strong>Firstname is required</strong>
+
+              </mat-error>
+           
+            </mat-form-field>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <mat-form-field class="form-input">
+              <input matInput placeholder="Lastname" formControlName="lastname" maxlength="100" required>
+              <mat-hint align="end">
+                  {{lastname.value.length}}/100
+                </mat-hint>
+              <mat-error *ngIf="lastname.hasError('required')">
+                <strong>Lastname is required</strong>
+
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <mat-form-field class="form-input">
+              <input matInput [matDatepicker]="picker" placeholder="Date of Birth">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6"></div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <mat-radio-group>
+              <mat-radio-button checked value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <mat-form-field class="form-input">
+              <input type="email" matInput placeholder="Email" formControlName="email" maxlength="100" required>
+              <mat-hint align="end">
+                {{email.value.length}}/100
+              </mat-hint>
+              <mat-error *ngIf="email.hasError('required')">
+                <strong>Email is required</strong>
+              </mat-error>
+              <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <mat-form-field class="form-input">
+              <input maxlength="10" minlength="6" type="password" matInput placeholder="Password" formControlName="password" required>
+
+              <mat-error *ngIf="password.hasError('required')">
+                <strong>Password is required</strong>
+              </mat-error>
+              <mat-error *ngIf="password.hasError('minlength')">
+                  <strong>Required length is at least 6 characters</strong>
+                </mat-error>
+              <mat-hint align="end">
+                  {{password.value.length}}/10
+                </mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <mat-form-field class="form-input">
+              <input maxlength="10" minlength="6" type="password" matInput placeholder="confirmPassword" formControlName="confirmPassword" required>
+              <mat-error *ngIf="confirmPassword.hasError('required')">
+                  <strong>Password is required</strong>
+                </mat-error>
+                <mat-error *ngIf="confirmPassword.hasError('mustMatch')">
+                  Passwords must match
+                </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <button mat-raised-button color="primary">Register</button>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer">
+      <h6>{{registerForm.value | json}}</h6>
+
+      <h6>{{registerForm.status | json}}</h6>
+    </div>
+
+  </div>
+</div>
+
+

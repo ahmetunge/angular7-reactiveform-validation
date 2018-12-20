@@ -1,0 +1,16 @@
+
+.form-input{
+    width: 100%;
+}
+
+.card-body{
+    min-height: 800px;
+}
+
+mat-radio-button{
+    margin-right: 10px;
+}
+
+button{
+    width: 100%;
+}
