@@ -1,12 +1,14 @@
 # Angular7 ReactiveForm Validations
 
 ## Overview
+
    Simple client side validations for angular 7 with using angular-material.
  This project include
 1) Maximum validations to check maximum length of input 
 2) Minimum validations to check minimum length of input
-3) Required validations 
-4) Custom validation for confirm password
+3) Email validations to check input is email or not
+4) Required validations 
+5) Custom validation for confirm password
 
 
 ## Features
